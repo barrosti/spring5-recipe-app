@@ -16,9 +16,10 @@ public class Recipe {
     private Integer serving;
     private String source;
     private String url;
-    private String direction;
-    //TODO: to add
-    //private Dificulty dificulty;
+    private String directions;
+
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
@@ -85,14 +86,6 @@ public class Recipe {
         this.url = url;
     }
 
-    public String getDirection() {
-        return direction;
-    }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
-    }
-
     public Set<Ingredient> getIngredients() {
         return ingredients;
     }
@@ -115,5 +108,21 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getDirections() {
+        return directions;
+    }
+
+    public void setDirections(String directions) {
+        this.directions = directions;
     }
 }
